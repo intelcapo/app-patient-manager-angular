@@ -1,10 +1,9 @@
 <div class="patient-module-container">
+  <h1>Mis pacientes</h1>
   <div>
-    <app-patients-filter></app-patients-filter>
-    <hr />
+    <app-patients-filter (onFilter)="filterPatients($event)"></app-patients-filter>
   </div>
-
   <div>
-    <app-patients-list> </app-patients-list>
+    <app-patients-list [patientList]="patientList"> </app-patients-list>
   </div>
 </div>

@@ -1,16 +1,23 @@
-<div class="patients-filter">
-  <div>
-    <app-search-input></app-search-input>
+<form [formGroup]="frmFilter">
+  <div class="patients-filter">
+    <div class="patients-filter-field">
+      <app-search-input label="Filtrar por ..." formControlName="dataToSearch"></app-search-input>
+    </div>
+    <div class="patients-filter-field">
+      <app-select-input
+        label="Estado de afiliacion"
+        formControlName="status"
+        defaultValue="Todos"
+        [options]="optionsForStatus"
+      ></app-select-input>
+    </div>
+    <div class="patients-filter-field">
+      <app-select-input
+        label="Ciudad"
+        formControlName="city"
+        defaultValue="Todos"
+        [options]="optionsForCities"
+      ></app-select-input>
+    </div>
   </div>
-  <!-- <select name="" id="">
-    <option value="">Activo</option>
-    <option value="">Inactivo</option>
-  </select>
-  <select name="" id="">
-    <option value="">Bogota</option>
-    <option value="">Cali</option>
-    <option value="">Barranquilla</option>
-    <option value="">Medellin</option>
-  </select>
-  <input type="date" name="" id="" placeholder="Ultima consulta" /> -->
-</div>
+</form>

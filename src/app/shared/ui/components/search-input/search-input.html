@@ -1,4 +1,10 @@
 <div class="search--input-container">
+  @if (label !== '') {
+    <label>
+      {{ label }}
+    </label>
+  }
+
   <input
     type="text"
     class="search--input"
@@ -8,19 +14,18 @@
     (focusout)="focusOut()"
     (keyup)="changeValue($event)"
   />
-  <div>
-    @if (isDirty) {
-      <span
-        class="material-symbols-outlined search--input-icon"
-        [class.isActive]="isFocused"
-        (click)="clear()"
-      >
-        close
-      </span>
-    } @else {
-      <span class="material-symbols-outlined search--input-icon" [class.isActive]="isFocused">
-        search
-      </span>
-    }
-  </div>
+
+  @if (isDirty) {
+    <span
+      class="material-symbols-outlined search--input-icon"
+      [class.isActive]="isFocused"
+      (click)="clear()"
+    >
+      close
+    </span>
+  } @else {
+    <span class="material-symbols-outlined search--input-icon" [class.isActive]="isFocused">
+      search
+    </span>
+  }
 </div>

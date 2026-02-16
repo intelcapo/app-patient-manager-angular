@@ -1,0 +1,8 @@
+.patients-filter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  .patients-filter-field {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}

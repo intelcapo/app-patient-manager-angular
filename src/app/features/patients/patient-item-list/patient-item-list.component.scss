@@ -4,6 +4,7 @@
   cursor: pointer;
   display: grid;
   grid-template-columns: 150px 400px 150px 300px;
+  color: globalStyles.$text-color;
 
   .patient-item--image {
     width: 80px;

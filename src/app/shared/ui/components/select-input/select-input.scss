@@ -1,0 +1,70 @@
+@use '../../../../../styles.scss' as globalStyles;
+.select--input-container {
+  position: relative;
+  width: 100%;
+  border-radius: globalStyles.$input-border-radius;
+  color: globalStyles.$text-color;
+  cursor: pointer;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .select--input-value {
+    width: 100%;
+    height: globalStyles.$input-height-default;
+    border-radius: globalStyles.$input-border-radius;
+    border: solid 1px #ccc;
+    display: grid;
+    grid-template-columns: 85% 15%;
+
+    &.active {
+      border: solid 2px globalStyles.$input-focus-color;
+    }
+
+    div:first-child {
+      span {
+        display: block;
+        position: relative;
+        padding: globalStyles.$input-padding;
+      }
+    }
+
+    .select--input-value-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .select--input-options-container {
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    background-color: white;
+    border: solid 1px #ccc;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .select--input-options-filter {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 4px;
+    }
+
+    .select--input-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .select--input-option {
+        padding: globalStyles.$input-padding;
+        &:hover {
+          background-color: globalStyles.$input-focus-color;
+          color: white;
+        }
+      }
+    }
+  }
+}

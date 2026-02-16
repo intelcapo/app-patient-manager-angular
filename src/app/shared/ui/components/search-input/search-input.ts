@@ -1,4 +1,4 @@
-import { Component, forwardRef, signal } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -11,17 +11,22 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class SearchInput implements ControlValueAccessor {
+  @Input()
+  label: string = '';
   isFocused: boolean = false;
   isDirty: boolean = false;
   currentValue = signal('');
   onChange = (_: any) => {};
   onTouch = () => {};
   isDisabled: boolean = false;
+  @Output()
+  onChangeValue: EventEmitter<string> = new EventEmitter();
 
   changeValue(event: any) {
     this.currentValue.set(event.target.value);
     this.isDirty = this.currentValue() !== '';
     this.writeValue(this.currentValue());
+    this.onChangeValue.emit(this.currentValue());
   }
 
   focusIn() {
@@ -35,6 +40,7 @@ export class SearchInput implements ControlValueAccessor {
   clear() {
     this.currentValue.set('');
     this.isDirty = false;
+    this.writeValue(this.currentValue());
   }
 
   writeValue(value: any): void {

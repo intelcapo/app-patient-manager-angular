@@ -1,0 +1,34 @@
+@use '../../../../../styles.scss' as globalStyles;
+
+.search--input-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .search--input {
+    border-radius: 8px;
+    padding: 8px;
+    border: solid 0.5px #ccc;
+
+    &:focus {
+      outline: solid 1px globalStyles.$input-focus-color;
+      border: solid 1px globalStyles.$input-focus-color;
+
+      &::placeholder {
+        color: globalStyles.$input-focus-color;
+      }
+    }
+  }
+
+  .search--input-icon {
+    position: relative;
+    color: #ccc;
+    z-index: 2;
+    right: 30px;
+    cursor: pointer;
+
+    &.isActive {
+      color: globalStyles.$input-focus-color;
+    }
+  }
+}

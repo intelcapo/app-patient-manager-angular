@@ -1,0 +1,80 @@
+@use './../../../../styles.scss' as globalStyles;
+
+.patient-item-list-container {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 150px 400px 150px 300px;
+
+  .patient-item--image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    border: solid 1px gray;
+    justify-self: center;
+    align-self: center;
+
+    img {
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  .patient-item--generalInformation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-items: center;
+    padding-top: 16px;
+
+    .patient-item--name {
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .patient-item--status {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+
+      &.on {
+        background-color: globalStyles.$notification-color;
+      }
+    }
+
+    .patient-item--info {
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .patient-item--location {
+      margin-left: 16px;
+    }
+  }
+
+  .patient-item--sessions {
+    display: flex;
+    flex-direction: column;
+    color: #6e6e6e;
+    align-items: center;
+    justify-items: center;
+    align-self: center;
+
+    .sessions--amount {
+      font-size: 24px;
+      font-weight: 400;
+      color: globalStyles.$notification-color;
+    }
+  }
+
+  .patient-item--actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}

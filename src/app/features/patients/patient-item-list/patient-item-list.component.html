@@ -1,0 +1,33 @@
+<app-card>
+  <div class="patient-item-list-container">
+    <div class="patient-item--image">
+      <img src="/assets/userProfile.png" alt="User profile" />
+    </div>
+    <div class="patient-item--generalInformation">
+      <div class="patient-item--name">
+        <span>{{ `${patient?.name} ${patient?.lastName} ` }}</span>
+        <span class="patient-item--status" [class.on]="patient?.status"></span>
+      </div>
+      <div class="patient-item--lastSessionDate patient-item--info">
+        <span class="material-symbols-outlined"> calendar_clock </span>
+        <span>
+          {{ patient?.lastSessionDate | date: 'yyyy/MM/dd' }}
+        </span>
+        <span class="patient-item--location patient-item--info">
+          <span class="material-symbols-outlined"> location_on </span>
+          <span>{{ patient?.locationName }}</span>
+        </span>
+      </div>
+    </div>
+    <div class="patient-item--sessions">
+      <span class="sessions--amount">
+        {{ patient?.sessions?.length }}
+      </span>
+      <span class="sessions--description"> Consultas Asistidas </span>
+    </div>
+    <div class="patient-item--actions">
+      <button>Editar</button>
+      <button>Eliminar</button>
+    </div>
+  </div>
+</app-card>

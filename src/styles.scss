@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+$sidebar-bg: #f5f7f6;
+$primary-color: #1e4d4f;
+$hover-bg: #e9efee;
+$text-color: #5c6b73;
+$active-bg: #000;
+$active-text: #fff;
+$notification-color: #4adcbe;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}

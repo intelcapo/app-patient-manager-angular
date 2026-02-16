@@ -1,0 +1,5 @@
+<div class="patients-list">
+  @for (patient of patientList; track patient.id) {
+    <app-patient-item-list [patient]="patient"></app-patient-item-list>
+  }
+</div>

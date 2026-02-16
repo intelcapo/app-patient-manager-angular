@@ -1,0 +1,56 @@
+@use '../../../../styles.scss' as globalStyles;
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: globalStyles.$sidebar-bg;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  &__logo {
+    margin-bottom: 2.5rem;
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: globalStyles.$primary-color;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: globalStyles.$text-color;
+  font-weight: 500;
+  transition: all 0.25s ease;
+
+  .icon {
+    font-size: 1.1rem;
+  }
+
+  &.active {
+    background: globalStyles.$active-bg;
+    color: globalStyles.$active-text;
+
+    .icon {
+      color: globalStyles.$active-text;
+    }
+  }
+
+  &:hover {
+    background: globalStyles.$hover-bg;
+    transform: translateX(4px);
+  }
+}

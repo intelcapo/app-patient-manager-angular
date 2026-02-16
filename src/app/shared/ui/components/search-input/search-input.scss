@@ -1,0 +1,49 @@
+@use '../../../../../styles.scss' as globalStyles;
+
+.search--input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: globalStyles.$text-color;
+  width: 100%;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  .search--input {
+    border-radius: globalStyles.$input-border-radius;
+    border: solid 0.5px #ccc;
+    width: 100%;
+    height: globalStyles.$input-height-default;
+    padding-left: 8px;
+    box-sizing: border-box;
+    color: globalStyles.$text-color;
+
+    &:focus {
+      outline: solid 1px globalStyles.$input-focus-color;
+      border: solid 1px globalStyles.$input-focus-color;
+
+      &::placeholder {
+        color: globalStyles.$input-focus-color;
+      }
+    }
+  }
+
+  .search--input-icon {
+    position: absolute;
+    color: #ccc;
+    z-index: 2;
+    right: 8px;
+    bottom: 8px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+
+    &.isActive {
+      color: globalStyles.$input-focus-color;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="search--input-container">
+  @if (label !== '') {
+    <label>
+      {{ label }}
+    </label>
+  }
+
+  <input
+    type="text"
+    class="search--input"
+    placeholder="Buscar ..."
+    [value]="currentValue()"
+    (focus)="focusIn()"
+    (focusout)="focusOut()"
+    (keyup)="changeValue($event)"
+  />
+
+  @if (isDirty) {
+    <span
+      class="material-symbols-outlined search--input-icon"
+      [class.isActive]="isFocused"
+      (click)="clear()"
+    >
+      close
+    </span>
+  } @else {
+    <span class="material-symbols-outlined search--input-icon" [class.isActive]="isFocused">
+      search
+    </span>
+  }
+</div>

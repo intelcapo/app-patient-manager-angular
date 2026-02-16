@@ -1,21 +1,9 @@
 <div class="patient-module-container">
+  <h1>Mis pacientes</h1>
   <div>
-    <input type="text" placeholder="Buscar ..." />
-    <select name="" id="">
-      <option value="">Activo</option>
-      <option value="">Inactivo</option>
-    </select>
-    <select name="" id="">
-      <option value="">Bogota</option>
-      <option value="">Cali</option>
-      <option value="">Barranquilla</option>
-      <option value="">Medellin</option>
-    </select>
-    <input type="date" name="" id="" placeholder="Ultima consulta" />
+    <app-patients-filter (onFilter)="filterPatients($event)"></app-patients-filter>
   </div>
-
-  <hr />
   <div>
-    <app-patients-list> </app-patients-list>
+    <app-patients-list [patientList]="patientList"> </app-patients-list>
   </div>
 </div>

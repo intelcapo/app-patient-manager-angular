@@ -1,0 +1,35 @@
+<div class="select--input-container">
+  <label>{{ label }}</label>
+  <div
+    class="select--input-value"
+    [class.active]="isContainerOptionsVisible"
+    (click)="toggleContainerOptionsVisibility()"
+  >
+    <div>
+      <span>{{ optionSelected()?.label || defaultValue }}</span>
+    </div>
+    <div class="select--input-value-icons">
+      @if (isContainerOptionsVisible) {
+        <span class="material-symbols-outlined"> arrow_drop_up </span>
+      } @else {
+        <span class="material-symbols-outlined"> arrow_drop_down </span>
+      }
+    </div>
+  </div>
+  @if (isContainerOptionsVisible) {
+    <div class="select--input-options-container">
+      <div class="select--input-options-add-value"></div>
+      <div class="select--input-options-filter">
+        <app-search-input (onChangeValue)="filterOptions($event)"></app-search-input>
+      </div>
+      <div class="select--input-options">
+        <div class="select--input-option" (click)="selectValue(null)">Seleccione ...</div>
+        @for (option of _options; track option.value) {
+          <div class="select--input-option" (click)="selectValue(option)">
+            {{ option.label }}
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

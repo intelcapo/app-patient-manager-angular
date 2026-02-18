@@ -1,6 +1,10 @@
-<div id="layout">
-  <app-side-menu id="menu-container"></app-side-menu>
-  <div id="module-container">
-    <router-outlet></router-outlet>
+<div class="layout">
+  <app-side-menu class="menu-container"></app-side-menu>
+  <div class="header">
+    <span class="material-symbols-outlined notification-icon"> notifications_unread </span>
+    <app-dropdown-session></app-dropdown-session>
   </div>
+  <main class="module-container">
+    <router-outlet></router-outlet>
+  </main>
 </div>

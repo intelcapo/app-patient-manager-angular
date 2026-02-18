@@ -1,0 +1,10 @@
+<button
+  class="btn"
+  [class.btn-normal]="buttonType == 'normal'"
+  [class.btn-light]="buttonType == 'light'"
+  [class.btn-danger]="buttonType == 'danger'"
+  type="button"
+  (click)="onButtonClicked.emit()"
+>
+  {{ label }}
+</button>

@@ -17,14 +17,21 @@ export class PatientsComponent implements OnInit {
 
   patientList: Patient[] = [];
   originalPatients: Patient[] = [];
+  executedSessions: number = 0;
 
   ngOnInit(): void {
     this.patientService.getAllPatients().subscribe({
       next: (patientsData) => {
         this.originalPatients = patientsData;
         this.patientList = patientsData;
+        this.calculateSessionsExecuted(this.patientList);
       },
     });
+  }
+
+  calculateSessionsExecuted(patientList: Patient[]) {
+    const sessionsAmount = patientList.map((patient) => patient.sessions.length);
+    this.executedSessions = sessionsAmount.reduce((acc, currentValue) => acc + currentValue);
   }
 
   filterPatients(data: PatientFilterDTO) {

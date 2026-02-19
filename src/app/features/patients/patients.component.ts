@@ -5,10 +5,12 @@ import { PatientsFilter } from './patients-filter/patients-filter';
 import { PatientFilterDTO } from './models/patient-filter.model';
 import { PatientsService } from './services/patients.service';
 import { Patient } from './models/patient.model';
+import { BtnRounded } from '../../shared/ui/components/btn-rounded/btn-rounded';
+import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 
 @Component({
   selector: 'app-patients',
-  imports: [PatientsListComponent, PatientsFilter],
+  imports: [PatientsListComponent, PatientsFilter, BtnRounded, DashboardRoutingModule],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.scss',
 })

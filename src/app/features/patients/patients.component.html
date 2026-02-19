@@ -1,5 +1,10 @@
 <div class="patient-module-container">
-  <h1>Mis pacientes</h1>
+  <div class="patient-header">
+    <h1>Mis pacientes</h1>
+    <a routerLink="/patients/new">
+      <app-btn-rounded label="+"></app-btn-rounded>
+    </a>
+  </div>
   <div>
     <app-patients-filter (onFilter)="filterPatients($event)"></app-patients-filter>
   </div>

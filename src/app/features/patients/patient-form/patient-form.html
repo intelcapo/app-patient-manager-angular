@@ -1,8 +1,248 @@
-<div class="patient-form-container">
-  <h1>Paciente nuevo</h1>
-  <div class="patient-form-grid">
-    <div class="patient-basic-information">
-      <app-card></app-card>
+<form action="#">
+  <div class="patient-form-container">
+    <h1>Paciente nuevo</h1>
+    <div class="patient-form-grid">
+      <div class="patient-basic-information">
+        <app-card>
+          <div class="patient-basic-information--card">
+            <div>
+              <h2>🧍 Datos del paciente</h2>
+            </div>
+            <div class="form-section form-container-image">
+              <img
+                src="/assets/userProfile.png"
+                alt="User profile"
+                class="patient-basic-information--profile-pic"
+              />
+            </div>
+
+            <div>
+              <div class="patient-form-basic-info form-section">
+                <legend>Informacion basica</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label for="dniType">Tipo de documento</label>
+                    <select name="dniType">
+                      <option value="cc">Cedula de ciudadania</option>
+                      <option value="passport">Pasaporte</option>
+                      <option value="ti">Tarjeta de identidad</option>
+                    </select>
+                  </div>
+                  <div class="form-input form-input-txt">
+                    <label for="dni">Documento</label>
+                    <input type="text" name="dni" />
+                  </div>
+                  <div class="form-input form-input-txt">
+                    <label for="name">Nombres</label>
+                    <input type="text" name="name" />
+                  </div>
+                  <div class="form-input form-input-txt">
+                    <label for="lastName">Apellidos</label>
+                    <input type="text" name="lastName" />
+                  </div>
+
+                  <div class="form-input">
+                    <label for="gender">Genero</label>
+                    <select name="gender">
+                      <option>Femenino</option>
+                      <option>Masculino</option>
+                    </select>
+                  </div>
+                  <div class="form-input">
+                    <label for="genderIdentity">Identidad de genero</label>
+                    <select name="genderIdentity">
+                      <option>Femenino</option>
+                      <option>Masculino</option>
+                      <option>Transexual</option>
+                      <option>LGTBQ+</option>
+                    </select>
+                  </div>
+
+                  <div class="form-input">
+                    <label for="birthDate">Fecha de nacimiento</label>
+                    <input type="date" name="birthDate" />
+                  </div>
+
+                  <div class="form-input">
+                    <label for="age">Edad</label>
+                    <input type="number" name="age" />
+                  </div>
+
+                  <div class="form-input">
+                    <label for="genderIdentity">Estado civil</label>
+                    <select name="genderIdentity">
+                      <option>Soltero</option>
+                      <option>Casado</option>
+                      <option>Divorciado</option>
+                      <option>Viudo</option>
+                      <option>Union libre</option>
+                      <option>En arrumacos</option>
+                    </select>
+                  </div>
+
+                  <div class="form-input">
+                    <label for="genderIdentity">Escolaridad</label>
+                    <select name="genderIdentity">
+                      <option>Primaria</option>
+                      <option>Bachillerato</option>
+                      <option>Tecnico</option>
+                      <option>Tecnologo</option>
+                      <option>Profesional</option>
+                      <option>Especialista</option>
+                      <option>Magister</option>
+                      <option>Doctorado</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <legend>Datos de contacto</legend>
+                <div class="form-container-fields">
+                  <div class="form-input form-input-txt">
+                    <label for="cellphone">Celular</label>
+                    <input type="text" name="cellphone" />
+                  </div>
+                  <div class="form-input form-input-txt">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <legend>Datos de ubicacion</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label for="country">Pais</label>
+                    <select name="country">
+                      <option>Colombia</option>
+                      <option>Mexico</option>
+                      <option>Estados Unidos</option>
+                      <option>Argentina</option>
+                      <option>Republica Dominicana</option>
+                    </select>
+                  </div>
+                  <div class="form-input">
+                    <label for="city">Ciudad</label>
+                    <select name="city">
+                      <option>Bogota</option>
+                      <option>Medellin</option>
+                      <option>Cali</option>
+                      <option>Bucaramanga</option>
+                      <option>Pasto</option>
+                    </select>
+                  </div>
+                  <div class="form-input">
+                    <label for="address">Direccion</label>
+                    <input type="text" name="address" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <legend>Seguridad social</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>Tiene EPS</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input type="radio" name="hasEPS" id="EPS-yes" value="true" />
+                        <label for="EPS-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input type="radio" name="hasEPS" id="EPS-no" value="false" />
+                        <label for="EPS-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-input">
+                    <label for="eps">EPS</label>
+                    <select name="eps">
+                      <option>Sanitas</option>
+                      <option>Salud total</option>
+                      <option>EMI</option>
+                      <option>Sura</option>
+                      <option>Compensar</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-card>
+      </div>
+
+      <div class="patient-documents-checklist">
+        <app-card></app-card>
+      </div>
+
+      <div class="patient-emergency-contact">
+        <app-card>
+          <div class="patient-emergency-contact--card">
+            <h3>👪 Contactos de emergencia</h3>
+          </div>
+        </app-card>
+      </div>
     </div>
   </div>
-</div>
+</form>
+
+<!-- 
+<div class="form-section">
+                <legend>Estado medico</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>Toma algun medicamento?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input type="radio" name="hasMedication" id="medication-yes" value="true" />
+                        <label for="medication-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input type="radio" name="hasMedication" id="medication-no" value="false" />
+                        <label for="medication-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-input">
+                    <label for="medicationName">Medicamento</label>
+                    <input type="text" name="medicationName" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <legend>Habitos y estilo de vida</legend>
+              <div class="form-container-fields">
+                <div class="form-input">
+                  <label for="psicologycalStatusType">Consumo de alcohol</label>
+                  <div class="yes-no-section">
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasMedication" id="medication-yes" value="true" />
+                      <label for="medication-yes">Si</label>
+                    </div>
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasMedication" id="medication-no" value="false" />
+                      <label for="medication-no">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <legend>Motivo de consulta</legend>
+              <div class="form-container-fields">
+                <div class="form-input">
+                  <label for="psicologycalStatusType">Tipo de consulta</label>
+                  <select name="psicologycalStatusType">
+                    <option value="">consulta por primera vez</option>
+                    <option value="">Remision</option>
+                    <option value="">Comisaria de familia</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> -->

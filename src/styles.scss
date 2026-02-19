@@ -11,6 +11,7 @@ $input-height-default: 36px;
 $input-border-radius: 8px;
 $input-padding: 8px;
 $button-hover-color: #1e4d4f;
+$padding-for-module-content: 40px 80px;
 
 body {
   margin: 0;
@@ -27,4 +28,71 @@ body {
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  color: $text-color;
+  padding: 4px 0;
+
+  label {
+    color: $text-color;
+    margin-bottom: 4px;
+  }
+
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='password'],
+  input[type='date'] {
+    width: 100%;
+    height: $input-height-default;
+    border-radius: $input-border-radius;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    color: $text-color;
+
+    &:focus {
+      outline: solid 1px $input-focus-color;
+      border: solid 1px $input-focus-color;
+
+      &::placeholder {
+        color: $input-focus-color;
+      }
+    }
+  }
+
+  input[type='radio'] {
+    width: 20px;
+    height: 20px;
+  }
+
+  select {
+    width: 100%;
+    height: $input-height-default;
+    border-radius: $input-border-radius;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    color: $text-color;
+
+    &:focus {
+      outline: solid 1px $input-focus-color;
+      border: solid 1px $input-focus-color;
+    }
+  }
+
+  .form-input-radio-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    label {
+      cursor: pointer;
+      margin-top: 4px;
+    }
+  }
+
+  .form-label-option {
+    cursor: pointer;
+  }
 }

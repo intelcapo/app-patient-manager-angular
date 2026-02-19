@@ -15,12 +15,12 @@
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(12, 1fr);
     grid-template-areas:
-      'basic-information basic-information basic-information  basic-information  basic-information documents documents'
-      'basic-information basic-information basic-information  basic-information  basic-information documents documents'
-      'basic-information basic-information basic-information  basic-information  basic-information documents documents'
-      'basic-information basic-information basic-information  basic-information  basic-information documents documents'
-      'emergency-contact emergency-contact emergency-contact emergency-contact emergency-contact others others'
-      'emergency-contact emergency-contact emergency-contact emergency-contact emergency-contact others others';
+      'basic-information basic-information basic-information  basic-information  basic-information consultion-reason consultion-reason'
+      'basic-information basic-information basic-information  basic-information  basic-information habits habits'
+      'basic-information basic-information basic-information  basic-information  basic-information habits habits'
+      'emergency-contact emergency-contact emergency-contact emergency-contact emergency-contact documents documents'
+      'medical-information medical-information medical-information medical-information medical-information documents documents'
+      'medical-information medical-information medical-information medical-information medical-information others others';
 
     column-gap: 40px;
     row-gap: 20px;
@@ -41,14 +41,6 @@
       }
 
       .form-section {
-        margin-top: 16px;
-
-        legend {
-          font-size: 20px;
-          font-weight: 400;
-          margin-bottom: 16px;
-        }
-
         &.form-container-image {
           display: flex;
           justify-content: center;
@@ -57,19 +49,6 @@
         .patient-form-basic-info {
           display: grid;
         }
-
-        .yes-no-section {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-        }
-
-        .form-container-fields {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          width: 100%;
-          column-gap: 8px;
-        }
       }
     }
 
@@ -77,11 +56,43 @@
       grid-area: emergency-contact;
 
       .patient-emergency-contact--card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+      }
+    }
+
+    .patient-medical-information {
+      grid-area: medical-information;
+
+      .patient-medical-information--card {
+      }
+    }
+
+    .patient-habits-and-life-style {
+      grid-area: habits;
+
+      .patient-habits-and-life-style--card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+
+        .habit-questions {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
       }
     }
 
     .patient-documents-checklist {
       grid-area: documents;
+    }
+
+    .patient-consultion-reason {
+      grid-area: consultion-reason;
     }
   }
 }

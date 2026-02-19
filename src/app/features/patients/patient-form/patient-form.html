@@ -139,34 +139,22 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </app-card>
+      </div>
 
-              <div class="form-section">
-                <legend>Seguridad social</legend>
-                <div class="form-container-fields">
-                  <div class="form-input">
-                    <label>Tiene EPS</label>
-                    <div class="yes-no-section">
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasEPS" id="EPS-yes" value="true" />
-                        <label for="EPS-yes">Si</label>
-                      </div>
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasEPS" id="EPS-no" value="false" />
-                        <label for="EPS-no">No</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-input">
-                    <label for="eps">EPS</label>
-                    <select name="eps">
-                      <option>Sanitas</option>
-                      <option>Salud total</option>
-                      <option>EMI</option>
-                      <option>Sura</option>
-                      <option>Compensar</option>
-                    </select>
-                  </div>
-                </div>
+      <div class="patient-consultion-reason">
+        <app-card>
+          <div class="patient-consultion-reason--card">
+            <h3>🩺 Motivo de consulta</h3>
+            <div class="form-section">
+              <div class="form-input">
+                <label for="consultationReason"></label>
+                <select name="consultationReason" id="">
+                  <option value="">Consulta por primera vez</option>
+                  <option value="">Remision</option>
+                </select>
               </div>
             </div>
           </div>
@@ -174,50 +162,127 @@
       </div>
 
       <div class="patient-documents-checklist">
-        <app-card></app-card>
+        <app-card>
+          <div class="patient-documents-checklist--card">
+            <h3>📚 Documentacion</h3>
+            <div class="form-section">
+              <div class="form-input-check-container">
+                <input type="checkbox" name="isAggrementSigned" id="" />
+                <label for="isAggrementSigned">
+                  <a>Consentimiento informado?</a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </app-card>
       </div>
 
       <div class="patient-emergency-contact">
         <app-card>
           <div class="patient-emergency-contact--card">
             <h3>👪 Contactos de emergencia</h3>
-          </div>
-        </app-card>
-      </div>
-    </div>
-  </div>
-</form>
-
-<!-- 
-<div class="form-section">
-                <legend>Estado medico</legend>
-                <div class="form-container-fields">
-                  <div class="form-input">
-                    <label>Toma algun medicamento?</label>
-                    <div class="yes-no-section">
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasMedication" id="medication-yes" value="true" />
-                        <label for="medication-yes">Si</label>
-                      </div>
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasMedication" id="medication-no" value="false" />
-                        <label for="medication-no">No</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-input">
-                    <label for="medicationName">Medicamento</label>
-                    <input type="text" name="medicationName" />
-                  </div>
+            <div class="form-section">
+              <legend>Informacion de los contactos</legend>
+              <div class="form-container-fields">
+                <div class="form-input">
+                  <label for="contactName">Nombre</label>
+                  <input type="text" name="contactName" />
+                </div>
+                <div class="form-input">
+                  <label for="contactType">Parentesco</label>
+                  <input type="text" name="contactType" />
+                </div>
+                <div class="form-input">
+                  <label for="contactPhone">Celular</label>
+                  <input type="text" name="contactPhone" />
+                </div>
+                <div class="form-input">
+                  <label for="contactEmail">Email</label>
+                  <input type="text" name="contactEmail" />
+                </div>
+              </div>
+              <div class="form-container-fields">
+                <div class="form-input">
+                  <label for="contactName">Nombre</label>
+                  <input type="text" name="contactName" />
+                </div>
+                <div class="form-input">
+                  <label for="contactType">Parentesco</label>
+                  <input type="text" name="contactType" />
+                </div>
+                <div class="form-input">
+                  <label for="contactPhone">Celular</label>
+                  <input type="text" name="contactPhone" />
+                </div>
+                <div class="form-input">
+                  <label for="contactEmail">Email</label>
+                  <input type="text" name="contactEmail" />
                 </div>
               </div>
             </div>
+          </div>
+        </app-card>
+      </div>
 
+      <div class="patient-medical-information">
+        <app-card>
+          <div class="patient-medical-information--card">
+            <h3>🏥 Informacion medica</h3>
             <div class="form-section">
-              <legend>Habitos y estilo de vida</legend>
+              <legend>⚕ Seguridad social</legend>
               <div class="form-container-fields">
                 <div class="form-input">
-                  <label for="psicologycalStatusType">Consumo de alcohol</label>
+                  <label>Tiene EPS</label>
+                  <div class="yes-no-section">
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasEPS" id="EPS-yes" value="true" />
+                      <label for="EPS-yes">Si</label>
+                    </div>
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasEPS" id="EPS-no" value="false" />
+                      <label for="EPS-no">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-input">
+                  <label for="eps">EPS</label>
+                  <select name="eps">
+                    <option>Sanitas</option>
+                    <option>Salud total</option>
+                    <option>EMI</option>
+                    <option>Sura</option>
+                    <option>Compensar</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-section">
+              <legend>😷 Patologias</legend>
+              <div class="form-container-fields">
+                <div class="form-input">
+                  <label>sufre de alguna patologia?</label>
+                  <div class="yes-no-section">
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasIlness" id="ilness-yes" value="true" />
+                      <label for="ilness-yes">Si</label>
+                    </div>
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasIlness" id="ilness-no" value="false" />
+                      <label for="ilness-no">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-input">
+                  <label for="ilnessName">Nombre de la patologia</label>
+                  <input type="text" name="ilnessName" />
+                </div>
+              </div>
+            </div>
+            <div class="form-section">
+              <legend>💊 Medicamentos actuales</legend>
+              <div class="form-container-fields">
+                <div class="form-input">
+                  <label>Usa algun medicamento?</label>
                   <div class="yes-no-section">
                     <div class="form-input-radio-container">
                       <input type="radio" name="hasMedication" id="medication-yes" value="true" />
@@ -229,20 +294,86 @@
                     </div>
                   </div>
                 </div>
+                <div class="form-input">
+                  <label for="medicationName">Medicamento</label>
+                  <input type="text" name="medicationName" />
+                </div>
               </div>
             </div>
 
             <div class="form-section">
-              <legend>Motivo de consulta</legend>
+              <legend>💉 Alergias</legend>
               <div class="form-container-fields">
                 <div class="form-input">
-                  <label for="psicologycalStatusType">Tipo de consulta</label>
-                  <select name="psicologycalStatusType">
-                    <option value="">consulta por primera vez</option>
-                    <option value="">Remision</option>
-                    <option value="">Comisaria de familia</option>
-                  </select>
+                  <label>Tiene alergias?</label>
+                  <div class="yes-no-section">
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasAllergies" id="allergies-yes" value="true" />
+                      <label for="allergies-yes">Si</label>
+                    </div>
+                    <div class="form-input-radio-container">
+                      <input type="radio" name="hasAllergies" id="allergies-no" value="false" />
+                      <label for="allergies-no">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-input">
+                  <label for="allergyName">Alergias</label>
+                  <input type="text" name="allergyName" />
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
+        </app-card>
+      </div>
+
+      <div class="patient-habits-and-life-style">
+        <app-card>
+          <div class="patient-habits-and-life-style--card">
+            <h3>🧠 Habitos y estilo de vida</h3>
+            <div class="habit-questions">
+              <div class="form-section">
+                <label>🍷 Consume Alcohol?</label>
+                <div class="form-input-radio-container">
+                  <input type="radio" name="drinkAlcohol" id="alcohol-no" value="never" />
+                  <label for="alcohol-no">No consume alcohol</label>
+                </div>
+                <div class="form-input-radio-container">
+                  <input
+                    type="radio"
+                    name="drinkAlcohol"
+                    id="alcohol-somethimes"
+                    value="sometimes"
+                  />
+                  <label for="alcohol-somethimes">Consumo ocasional</label>
+                </div>
+
+                <div class="form-input-radio-container">
+                  <input type="radio" name="drinkAlcohol" id="alcohol-always" value="always" />
+                  <label for="alcohol-always">Consumo frecuente</label>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <label>🍁Consume sustancias psicoactivas?</label>
+                <div class="form-input-radio-container">
+                  <input type="radio" name="useDrugs" id="drugs-no" value="never" />
+                  <label for="drugs-no">No consume sutancias</label>
+                </div>
+                <div class="form-input-radio-container">
+                  <input type="radio" name="useDrugs" id="drugs-somethimes" value="sometimes" />
+                  <label for="drugs-somethimes">Consumo ocasional</label>
+                </div>
+
+                <div class="form-input-radio-container">
+                  <input type="radio" name="useDrugs" id="drugs-always" value="always" />
+                  <label for="drugs-always">Consumo frecuente</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-card>
+      </div>
+    </div>
+  </div>
+</form>

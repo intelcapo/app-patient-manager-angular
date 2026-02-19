@@ -3,6 +3,17 @@
   <div>
     <app-patients-filter (onFilter)="filterPatients($event)"></app-patients-filter>
   </div>
+  <div class="patient-general-information">
+    <span>
+      Total pacientes: <b> {{ originalPatients.length }} </b></span
+    >
+    <span>
+      Pacientes filtrados: <b> {{ patientList.length }} </b>
+    </span>
+    <span>
+      Consultas ejecutadas: <b>{{ executedSessions }} </b>
+    </span>
+  </div>
   <div>
     <app-patients-list [patientList]="patientList"> </app-patients-list>
   </div>

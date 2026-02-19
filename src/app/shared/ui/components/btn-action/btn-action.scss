@@ -1,0 +1,29 @@
+@use '../../../../../styles.scss' as globalStyles;
+
+.btn {
+  padding: globalStyles.$input-padding;
+  border-radius: globalStyles.$input-border-radius;
+  border: none;
+  cursor: pointer;
+  min-width: 80px;
+
+  &:hover {
+    background-color: globalStyles.$button-hover-color;
+  }
+
+  &.btn-normal {
+    color: white;
+    background-color: globalStyles.$primary-color;
+  }
+
+  &.btn-light {
+    color: white;
+    background-color: globalStyles.$primary-color;
+  }
+
+  &.btn-danger {
+    background-color: white;
+    color: #dba6a0;
+    border: solid 1px #dba6a0;
+  }
+}

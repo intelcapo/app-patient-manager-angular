@@ -12,22 +12,16 @@
 
   .patient-form-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    grid-template-areas:
-      'basic-information basic-information basic-information  basic-information  basic-information consultion-reason consultion-reason'
-      'basic-information basic-information basic-information  basic-information  basic-information habits habits'
-      'basic-information basic-information basic-information  basic-information  basic-information habits habits'
-      'emergency-contact emergency-contact emergency-contact emergency-contact emergency-contact documents documents'
-      'medical-information medical-information medical-information medical-information medical-information documents documents'
-      'medical-information medical-information medical-information medical-information medical-information others others';
-
+    grid-template-columns: 70% 30%;
     column-gap: 40px;
-    row-gap: 20px;
+
+    .patient-form--section-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
 
     .patient-basic-information {
-      grid-area: basic-information;
-
       .patient-basic-information--card {
         display: flex;
         flex-direction: column;
@@ -53,8 +47,6 @@
     }
 
     .patient-emergency-contact {
-      grid-area: emergency-contact;
-
       .patient-emergency-contact--card {
         display: flex;
         flex-direction: column;
@@ -64,15 +56,11 @@
     }
 
     .patient-medical-information {
-      grid-area: medical-information;
-
       .patient-medical-information--card {
       }
     }
 
     .patient-habits-and-life-style {
-      grid-area: habits;
-
       .patient-habits-and-life-style--card {
         display: flex;
         flex-direction: column;
@@ -88,11 +76,9 @@
     }
 
     .patient-documents-checklist {
-      grid-area: documents;
     }
 
     .patient-consultion-reason {
-      grid-area: consultion-reason;
     }
   }
 }

@@ -52,7 +52,7 @@ export class PatientsComponent implements OnInit {
           patient.status == (data.status.label.toLowerCase() == 'activo' ? true : false);
 
         const matchLocation =
-          !data.city || patient.locationName.toLowerCase() == data.city.label.toLowerCase();
+          !data.city || patient.city?.toLowerCase() == data.city.label.toLowerCase();
 
         return matchData && matchStatus && matchLocation;
       });

@@ -1,0 +1,35 @@
+@use '../../../../../styles.scss' as globalStyles;
+
+.string-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.string-item {
+  background-color: globalStyles.$primary-color;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  span {
+    margin-left: 4px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: globalStyles.$input-focus-color;
+    color: white;
+    cursor: default;
+  }
+}

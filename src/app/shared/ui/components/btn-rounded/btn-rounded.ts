@@ -10,6 +10,9 @@ export class BtnRounded {
   @Input()
   label: string = '';
 
+  @Input()
+  buttonSize: 'small' | 'medium' | 'big' = 'medium';
+
   @Output()
   onClicked = new EventEmitter<any>();
 }

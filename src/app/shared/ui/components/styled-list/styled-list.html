@@ -1,0 +1,8 @@
+<ul class="string-list">
+  @for (item of items; track item) {
+    <li class="string-item">
+      {{ item }}
+      <span class="material-symbols-outlined" (click)="onRemoveitem.emit(item)"> close_small </span>
+    </li>
+  }
+</ul>

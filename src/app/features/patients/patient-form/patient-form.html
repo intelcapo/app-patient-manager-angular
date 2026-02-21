@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="form-section">
-                  <legend>Informacion socio-demografica</legend>
+                  <legend>Informacion sociodemográfica</legend>
                   <div class="form-container-fields">
                     <div class="form-input">
                       <label for="socioEconomicStratum">Estrato</label>
@@ -185,6 +185,211 @@
           </app-card>
         </div>
 
+        <div class="patient-medical-information" formGroupName="medicalInformation">
+          <app-card>
+            <div class="patient-medical-information--card">
+              <h3>🏥 Información médica</h3>
+              <div class="form-section">
+                <legend>⚕ Seguridad social</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>¿Tiene EPS?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasEPSAffiliation"
+                          id="EPS-yes"
+                          [value]="true"
+                          formControlName="hasEPSAffiliation"
+                        />
+                        <label for="EPS-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasEPSAffiliation"
+                          id="EPS-no"
+                          [value]="false"
+                          formControlName="hasEPSAffiliation"
+                        />
+                        <label for="EPS-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  @if (patientHasEPSAffiliation) {
+                    <div class="form-input">
+                      <label for="eps">EPS</label>
+                      <select name="eps">
+                        <option>Sanitas</option>
+                        <option>Salud total</option>
+                        <option>EMI</option>
+                        <option>Sura</option>
+                        <option>Compensar</option>
+                      </select>
+                    </div>
+                  }
+                </div>
+              </div>
+              <div class="form-section">
+                <legend>😷 Patologías</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>¿Sufre de alguna patología?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasPathologies"
+                          id="pathology-yes"
+                          [value]="true"
+                          formControlName="hasPathologies"
+                        />
+                        <label for="pathology-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasPathologies"
+                          id="pathology-no"
+                          [value]="false"
+                          formControlName="hasPathologies"
+                        />
+                        <label for="pathology-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  @if (patientHasMedicalConditions) {
+                    <div class="add-section">
+                      <div class="form-input">
+                        <label for="pathologyName">Nombre de la patología</label>
+                        <input
+                          type="text"
+                          #pathologyName
+                          name="pathologyName"
+                          formControlName="pathologyName"
+                        />
+                      </div>
+                      <app-btn-rounded
+                        class="add-section--button"
+                        [buttonSize]="'small'"
+                        label="+"
+                        (onClicked)="addMedicalCondition(pathologyName.value)"
+                      ></app-btn-rounded>
+                    </div>
+                    @if (patientMedicalConditions.length > 0) {
+                      <app-styled-list
+                        class="add-section--list"
+                        [items]="patientMedicalConditions"
+                        (onRemoveitem)="removeMedicalCondition($event)"
+                      ></app-styled-list>
+                    }
+                  }
+                </div>
+              </div>
+              <div class="form-section">
+                <legend>💊 Medicamentos actuales</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>¿Usa algún medicamento?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasCurrentMedications"
+                          id="medication-yes"
+                          [value]="true"
+                          formControlName="hasCurrentMedications"
+                        />
+                        <label for="medication-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasCurrentMedications"
+                          id="medication-no"
+                          [value]="false"
+                          formControlName="hasCurrentMedications"
+                        />
+                        <label for="medication-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  @if (patientHasCurrentMedications) {
+                    <div class="add-section">
+                      <div class="form-input">
+                        <label for="medicationName">Nombre del medicamento</label>
+                        <input
+                          #medicationName
+                          type="text"
+                          name="medicationName"
+                          formControlName="medicationName"
+                        />
+                      </div>
+                      <app-btn-rounded
+                        class="add-section--button"
+                        [buttonSize]="'small'"
+                        label="+"
+                        (onClicked)="addCurrentMedication(medicationName.value)"
+                      ></app-btn-rounded>
+                    </div>
+                    @if (patientCurrentMedications.length > 0) {
+                      <app-styled-list
+                        class="add-section--list"
+                        [items]="patientCurrentMedications"
+                        (onRemoveitem)="removeMedication($event)"
+                      ></app-styled-list>
+                    }
+                  }
+                </div>
+              </div>
+
+              <div class="form-section">
+                <legend>💉 Alergias</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>¿Tiene alergias?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasAllergies"
+                          id="allergies-yes"
+                          [value]="true"
+                          formControlName="hasAllergies"
+                        />
+                        <label for="allergies-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasAllergies"
+                          id="allergies-no"
+                          [value]="false"
+                          formControlName="hasAllergies"
+                        />
+                        <label for="allergies-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  @if (patientHasAllergies) {
+                    <div class="add-section">
+                      <div class="form-input">
+                        <label for="allergyName">Nombre de la alergia</label>
+                        <input type="text" name="allergyName" />
+                      </div>
+                      <app-btn-rounded
+                        class="add-section--button"
+                        [buttonSize]="'small'"
+                        label="+"
+                      ></app-btn-rounded>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
         <div class="patient-emergency-contact">
           <app-card>
             <div class="patient-emergency-contact--card">
@@ -225,109 +430,6 @@
                   <div class="form-input">
                     <label for="contactEmail">Email</label>
                     <input type="text" name="contactEmail" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </app-card>
-        </div>
-
-        <div class="patient-medical-information">
-          <app-card>
-            <div class="patient-medical-information--card">
-              <h3>🏥 Informacion medica</h3>
-              <div class="form-section">
-                <legend>⚕ Seguridad social</legend>
-                <div class="form-container-fields">
-                  <div class="form-input">
-                    <label>Tiene EPS</label>
-                    <div class="yes-no-section">
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasEPS" id="EPS-yes" value="true" />
-                        <label for="EPS-yes">Si</label>
-                      </div>
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasEPS" id="EPS-no" value="false" />
-                        <label for="EPS-no">No</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-input">
-                    <label for="eps">EPS</label>
-                    <select name="eps">
-                      <option>Sanitas</option>
-                      <option>Salud total</option>
-                      <option>EMI</option>
-                      <option>Sura</option>
-                      <option>Compensar</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-section">
-                <legend>😷 Patologias</legend>
-                <div class="form-container-fields">
-                  <div class="form-input">
-                    <label>sufre de alguna patologia?</label>
-                    <div class="yes-no-section">
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasIlness" id="ilness-yes" value="true" />
-                        <label for="ilness-yes">Si</label>
-                      </div>
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasIlness" id="ilness-no" value="false" />
-                        <label for="ilness-no">No</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-input">
-                    <label for="ilnessName">Nombre de la patologia</label>
-                    <input type="text" name="ilnessName" />
-                  </div>
-                </div>
-              </div>
-              <div class="form-section">
-                <legend>💊 Medicamentos actuales</legend>
-                <div class="form-container-fields">
-                  <div class="form-input">
-                    <label>Usa algun medicamento?</label>
-                    <div class="yes-no-section">
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasMedication" id="medication-yes" value="true" />
-                        <label for="medication-yes">Si</label>
-                      </div>
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasMedication" id="medication-no" value="false" />
-                        <label for="medication-no">No</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-input">
-                    <label for="medicationName">Medicamento</label>
-                    <input type="text" name="medicationName" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-section">
-                <legend>💉 Alergias</legend>
-                <div class="form-container-fields">
-                  <div class="form-input">
-                    <label>Tiene alergias?</label>
-                    <div class="yes-no-section">
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasAllergies" id="allergies-yes" value="true" />
-                        <label for="allergies-yes">Si</label>
-                      </div>
-                      <div class="form-input-radio-container">
-                        <input type="radio" name="hasAllergies" id="allergies-no" value="false" />
-                        <label for="allergies-no">No</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-input">
-                    <label for="allergyName">Alergias</label>
-                    <input type="text" name="allergyName" />
                   </div>
                 </div>
               </div>

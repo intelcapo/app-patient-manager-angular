@@ -28,12 +28,12 @@ export interface Patient extends Person {
 export interface EmergencyContact extends Contact {}
 
 export interface MedicalInformation {
-  hasEPS?: boolean;
+  hasEPSAffiliation?: boolean;
   EPSName?: string;
-  hasPathology?: boolean;
+  hasPathologies?: boolean;
   pathologies?: string[];
-  useMedications?: boolean;
-  medicationNames: string[];
+  hasCurrentMedications?: boolean;
+  currentMedicationNames: string[];
   hasAllergies?: boolean;
   allergyNames?: string[];
 }

@@ -46,6 +46,43 @@
       }
     }
 
+    .patient-medical-information {
+      .patient-medical-information--card {
+        .form-section {
+          margin-top: 28px;
+          .form-container-fields {
+            display: flex;
+            flex-direction: column;
+
+            .add-section {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 20px;
+              margin-top: 20px;
+
+              .add-section--button {
+                margin-top: 25px;
+              }
+            }
+
+            .add-section--list {
+              margin-top: 24px;
+            }
+
+            .form-input {
+              .yes-no-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .patient-emergency-contact {
       .patient-emergency-contact--card {
         display: flex;

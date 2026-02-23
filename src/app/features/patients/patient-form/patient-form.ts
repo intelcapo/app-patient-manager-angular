@@ -1,15 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { CardComponent } from '../../../shared/ui/components/card/card.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Patient } from '../models/patient.model';
-import { disabled, email } from '@angular/forms/signals';
 import { PatientsService } from '../services/patients.service';
-import { BtnRounded } from '../../../shared/ui/components/btn-rounded/btn-rounded';
 import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-patient-form',
-  imports: [CardComponent, ReactiveFormsModule, BtnRounded, SharedModule],
+  imports: [CardComponent, ReactiveFormsModule, SharedModule],
   providers: [PatientsService],
   templateUrl: './patient-form.html',
   styleUrl: './patient-form.scss',
@@ -37,11 +34,10 @@ export class PatientForm {
     isDisplaced: new FormControl(''),
     medicalInformation: new FormGroup({
       hasEPSAffiliation: new FormControl(false),
-      hasPathologies: new FormControl(false),
+      hasEPSPremiumAffiliation: new FormControl(false),
       pathologyName: new FormControl(''),
-      hasCurrentMedications: new FormControl(false),
       medicationName: new FormControl(''),
-      hasAllergies: new FormControl(false),
+      allergyName: new FormControl(''),
     }),
   });
 
@@ -66,36 +62,23 @@ export class PatientForm {
     });
 
     this.frmPatient.controls['medicalInformation'].valueChanges.subscribe((medicalInformation) => {
-      const { hasEPSAffiliation, hasPathologies, hasCurrentMedications, hasAllergies } =
-        medicalInformation;
+      const { hasEPSAffiliation } = medicalInformation;
       this.patientHasEPSAffiliation = hasEPSAffiliation || false;
-      this.patientHasMedicalConditions = hasPathologies || false;
-      this.patientHasCurrentMedications = hasCurrentMedications || false;
-      this.patientHasAllergies = hasAllergies || false;
-
-      if (!this.patientHasMedicalConditions) {
-        this.patientMedicalConditions = [];
-      }
-
-      if (!this.patientHasCurrentMedications) {
-        this.patientCurrentMedications = [];
-      }
-
-      if (!this.patientHasAllergies) {
-        this.patientCurrentAllergies = [];
-      }
     });
   }
 
   addMedicalCondition(pathologyName: string | null) {
+    console.log(`addMedicalCondition: ${pathologyName}`);
     if (!pathologyName) {
       return;
     }
     this.patientMedicalConditions.push(pathologyName);
+    console.log(this.patientMedicalConditions);
     this.frmPatient.controls['medicalInformation'].controls['pathologyName'].reset();
   }
 
   removeMedicalCondition(pathologyName: string) {
+    console.log(`removeMedicalCondition ${pathologyName}`);
     const pathologyIndex = this.patientMedicalConditions.findIndex(
       (pathology) => pathology == pathologyName,
     );
@@ -127,6 +110,16 @@ export class PatientForm {
       this.patientCurrentMedications.splice(medicationIndex, 1);
     }
   }
+  addAllergy(allergyName: string | null) {
+    if (!allergyName) {
+      return;
+    }
+
+    this.patientCurrentAllergies.push(allergyName);
+    this.frmPatient.controls['medicalInformation'].controls['allergyName'].reset();
+  }
+
+  removeAllergy(allergyName: string | null) {}
 
   createPatient(event: any) {
     event.preventDefault();

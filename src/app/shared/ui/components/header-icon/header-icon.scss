@@ -1,0 +1,12 @@
+@use '../../../../../styles.scss' as globalStyles;
+
+.icon-wrapper {
+  width: 45px;
+  height: 45px;
+  background-color: globalStyles.$section-background-color;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: globalStyles.$icon-text-color;
+}

@@ -11,8 +11,8 @@
 }
 
 .string-item {
-  background-color: globalStyles.$primary-color;
-  color: white;
+  background-color: globalStyles.$section-background-color;
+  color: globalStyles.$icon-text-color;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -28,8 +28,8 @@
   }
 
   &:hover {
-    background-color: globalStyles.$input-focus-color;
-    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(26, 96, 139, 0.4);
     cursor: default;
   }
 }

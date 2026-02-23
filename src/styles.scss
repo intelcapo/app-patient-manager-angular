@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 $sidebar-bg: #f5f7f6;
+$section-background-color: #e3f2fd;
+$icon-text-color: #007bff;
+$title-text-color: #1a202c;
+$float-button-action-background: #1da1f2;
 $primary-color: #3c9197;
 $hover-bg: #e9efee;
 $text-color: #5c6b73;
@@ -43,7 +47,8 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    column-gap: 8px;
+    column-gap: 16px;
+    row-gap: 24px;
   }
 
   .yes-no-section {
@@ -61,7 +66,7 @@ body {
 
   label {
     color: $text-color;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   input[type='text'],
@@ -75,6 +80,7 @@ body {
     border: solid 1px #ccc;
     box-sizing: border-box;
     color: $text-color;
+    padding-left: 8px;
 
     &:focus {
       outline: solid 1px $input-focus-color;
@@ -98,6 +104,7 @@ body {
     border: solid 1px #ccc;
     box-sizing: border-box;
     color: $text-color;
+    padding-left: 8px;
 
     &:focus {
       outline: solid 1px $input-focus-color;

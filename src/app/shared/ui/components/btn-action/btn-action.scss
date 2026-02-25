@@ -6,14 +6,11 @@
   border: none;
   cursor: pointer;
   min-width: 80px;
-
-  &:hover {
-    background-color: globalStyles.$button-hover-color;
-  }
+  transition: all 0.2s ease-in-out;
 
   &.btn-normal {
     color: white;
-    background-color: globalStyles.$primary-color;
+    background-color: globalStyles.$float-button-action-background;
   }
 
   &.btn-light {

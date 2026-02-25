@@ -1,0 +1,16 @@
+@use '../../../../../styles.scss' as globalStyles;
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: globalStyles.$title-text-color;
+    margin: 0;
+  }
+}

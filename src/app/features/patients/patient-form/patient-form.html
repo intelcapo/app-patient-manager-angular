@@ -1,8 +1,532 @@
-<div class="patient-form-container">
-  <h1>Paciente nuevo</h1>
-  <div class="patient-form-grid">
-    <div class="patient-basic-information">
-      <app-card></app-card>
+<form [formGroup]="frmPatient" (ngSubmit)="createPatient($event)">
+  <div class="patient-form-container">
+    <h1>Paciente nuevo</h1>
+
+    <div class="patient-form-grid">
+      <div class="patient-form--section-container patien-form--left-container">
+        <div class="patient-basic-information">
+          <app-card>
+            <div class="patient-basic-information--card">
+              <app-header-section
+                title="Datos del paciente"
+                iconName="patient_list"
+              ></app-header-section>
+              <div class="form-section form-container-image">
+                <img
+                  src="/assets/userProfile.png"
+                  alt="User profile"
+                  class="patient-basic-information--profile-pic"
+                />
+              </div>
+
+              <div>
+                <div class="patient-form-basic-info form-section">
+                  <legend>Informacion basica</legend>
+                  <div class="form-container-fields">
+                    <div class="form-input">
+                      <label for="documentType">Tipo de documento</label>
+                      <select name="documentType" formControlName="documentType">
+                        <option value="cc">Cedula de ciudadania</option>
+                        <option value="passport">Pasaporte</option>
+                        <option value="ti">Tarjeta de identidad</option>
+                      </select>
+                    </div>
+                    <div class="form-input form-input-txt">
+                      <label for="documentNumber">Documento</label>
+                      <input type="text" name="documentNumber" formControlName="documentNumber" />
+                    </div>
+                    <div class="form-input form-input-txt">
+                      <label for="name">Nombres</label>
+                      <input type="text" name="name" formControlName="name" />
+                    </div>
+                    <div class="form-input form-input-txt">
+                      <label for="lastName">Apellidos</label>
+                      <input type="text" name="lastName" formControlName="lastName" />
+                    </div>
+
+                    <div class="form-input">
+                      <label for="gender">Genero</label>
+                      <select name="gender" formControlName="gender">
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                      </select>
+                    </div>
+                    <div class="form-input">
+                      <label for="genderIdentity">Identidad de genero</label>
+                      <select name="genderIdentity" formControlName="genderIdentity">
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                        <option>Transexual</option>
+                        <option>LGTBQ+</option>
+                      </select>
+                    </div>
+
+                    <div class="form-input">
+                      <label for="birthDate">Fecha de nacimiento</label>
+                      <input
+                        type="date"
+                        name="birthDate"
+                        formControlName="birthDate"
+                        format="dd-MM-yyyy"
+                      />
+                    </div>
+
+                    <div class="form-input">
+                      <label for="age">Edad</label>
+                      <input type="number" name="age" formControlName="age" />
+                    </div>
+
+                    <div class="form-input">
+                      <label for="maritalStatus">Estado civil</label>
+                      <select name="maritalStatus" formControlName="maritalStatus">
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                        <option>Divorciado</option>
+                        <option>Viudo</option>
+                        <option>Union libre</option>
+                        <option>En arrumacos</option>
+                      </select>
+                    </div>
+
+                    <div class="form-input">
+                      <label for="educationLevel">Escolaridad</label>
+                      <select name="educationLevel" formControlName="educationLevel">
+                        <option>Primaria</option>
+                        <option>Bachillerato</option>
+                        <option>Tecnico</option>
+                        <option>Tecnologo</option>
+                        <option>Profesional</option>
+                        <option>Especialista</option>
+                        <option>Magister</option>
+                        <option>Doctorado</option>
+                      </select>
+                    </div>
+
+                    <div class="form-input">
+                      <label for="job">Ocupacion</label>
+                      <input type="text" name="job" formControlName="job" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <legend>Datos de contacto</legend>
+                  <div class="form-container-fields">
+                    <div class="form-input form-input-txt">
+                      <label for="phone">Celular</label>
+                      <input type="text" name="phone" formControlName="phone" />
+                    </div>
+                    <div class="form-input form-input-txt">
+                      <label for="email">Email</label>
+                      <input type="email" name="email" formControlName="email" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <legend>Datos de ubicacion</legend>
+                  <div class="form-container-fields">
+                    <div class="form-input">
+                      <label for="country">Pais</label>
+                      <select name="country" formControlName="country">
+                        <option>Colombia</option>
+                        <option>Mexico</option>
+                        <option>Estados Unidos</option>
+                        <option>Argentina</option>
+                        <option>Republica Dominicana</option>
+                      </select>
+                    </div>
+                    <div class="form-input">
+                      <label for="city">Ciudad</label>
+                      <select name="city" formControlName="city">
+                        <option>Bogota</option>
+                        <option>Medellin</option>
+                        <option>Cali</option>
+                        <option>Bucaramanga</option>
+                        <option>Pasto</option>
+                      </select>
+                    </div>
+                    <div class="form-input">
+                      <label for="address">Direccion</label>
+                      <input type="text" name="address" formControlName="address" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <legend>Informacion sociodemográfica</legend>
+                  <div class="form-container-fields">
+                    <div class="form-input">
+                      <label for="socioEconomicStratum">Estrato</label>
+                      <input
+                        type="number"
+                        name="socioEconomicStratum"
+                        formControlName="socioEconomicStratum"
+                      />
+                    </div>
+                    <div class="form-input">
+                      <label for="victimOfArmedConflict">Victima del conflicto?</label>
+                      <select name="victimOfArmedConflict" formControlName="victimOfArmedConflict">
+                        <option>Si</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+
+                    <div class="form-input">
+                      <label for="isDisplaced">Es desplazado?</label>
+                      <select name="isDisplaced" formControlName="isDisplaced">
+                        <option>Si</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+
+        <div class="patient-medical-information" formGroupName="medicalInformation">
+          <!--Has EPS section-->
+          <app-card>
+            <div class="patient-medical-information--card">
+              <app-header-section
+                title="Seguridad social"
+                iconName="verified_user"
+              ></app-header-section>
+              <div class="form-section">
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>¿Tiene EPS?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasEPSAffiliation"
+                          id="EPS-yes"
+                          [value]="true"
+                          formControlName="hasEPSAffiliation"
+                        />
+                        <label for="EPS-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasEPSAffiliation"
+                          id="EPS-no"
+                          [value]="false"
+                          formControlName="hasEPSAffiliation"
+                        />
+                        <label for="EPS-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  @if (patientHasEPSAffiliation) {
+                    <div class="form-input">
+                      <label for="eps">EPS</label>
+                      <select name="eps">
+                        <option>Sanitas</option>
+                        <option>Salud total</option>
+                        <option>EMI</option>
+                        <option>Sura</option>
+                        <option>Compensar</option>
+                      </select>
+                    </div>
+                  }
+                </div>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label>¿Tiene prepagada?</label>
+                    <div class="yes-no-section">
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasEPSPremiumAffiliation"
+                          id="EPSPremium-yes"
+                          [value]="true"
+                          formControlName="hasEPSPremiumAffiliation"
+                        />
+                        <label for="EPSPremium-yes">Si</label>
+                      </div>
+                      <div class="form-input-radio-container">
+                        <input
+                          type="radio"
+                          name="hasEPSPremiumAffiliation"
+                          id="EPSPremium-no"
+                          [value]="false"
+                          formControlName="hasEPSPremiumAffiliation"
+                        />
+                        <label for="EPSPremium-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+          <!--Has pathologies section-->
+          <app-card>
+            <div class="patient-medical-information--card">
+              <app-header-section title="Patologías" iconName="sick"></app-header-section>
+              <div class="form-section">
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <div class="add-section">
+                      <div class="form-input">
+                        <label for="pathologyName">Nombre de la patología</label>
+                        @if (patientMedicalConditions.length > 0) {
+                          <app-styled-list
+                            class="add-section--list"
+                            [items]="patientMedicalConditions"
+                            (onRemoveitem)="removeMedicalCondition($event)"
+                          ></app-styled-list>
+                        }
+
+                        <div class="add-section-textbox-and-button">
+                          <input
+                            type="text"
+                            #pathologyName
+                            name="pathologyName"
+                            placeholder="Ej: Hipertension"
+                            formControlName="pathologyName"
+                          />
+                          <app-btn-square
+                            iconName="add"
+                            (onClicked)="addMedicalCondition(pathologyName.value)"
+                          ></app-btn-square>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+          <!--Has allergies section-->
+          <app-card>
+            <div class="patient-medical-information--card">
+              <app-header-section title="Alergias" iconName="allergy"></app-header-section>
+              <div class="form-section">
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <div class="add-section">
+                      <div class="form-input">
+                        <label for="allergyName">Alergias conocidas</label>
+                        @if (patientCurrentAllergies.length > 0) {
+                          <app-styled-list
+                            class="add-section--list"
+                            [items]="patientCurrentAllergies"
+                            (onRemoveitem)="removeAllergy($event)"
+                          ></app-styled-list>
+                        }
+
+                        <div class="add-section-textbox-and-button">
+                          <input
+                            type="text"
+                            #allergyName
+                            name="allergyName"
+                            placeholder="Ej: polen"
+                            formControlName="allergyName"
+                          />
+                          <app-btn-square
+                            iconName="add"
+                            (onClicked)="addAllergy(allergyName.value)"
+                          ></app-btn-square>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+          <!--Has medication section-->
+          <app-card>
+            <div class="patient-medical-information--card">
+              <app-header-section title="Medicación " iconName="prescriptions"></app-header-section>
+              <div class="form-section">
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <div class="add-section">
+                      <div class="form-input">
+                        <label for="medicationName">Medicamentos actuales</label>
+                        @if (patientCurrentMedications.length > 0) {
+                          <app-styled-list
+                            class="add-section--list"
+                            [items]="patientCurrentMedications"
+                            (onRemoveitem)="removeMedication($event)"
+                          ></app-styled-list>
+                        }
+
+                        <div class="add-section-textbox-and-button">
+                          <input
+                            type="text"
+                            #medicationName
+                            name="medicationName"
+                            placeholder="Ej: Penicilina, Metformina ..."
+                            formControlName="medicationName"
+                          />
+                          <app-btn-square
+                            iconName="add"
+                            (onClicked)="addCurrentMedication(medicationName.value)"
+                          ></app-btn-square>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+        <div class="patient-emergency-contact">
+          <app-card>
+            <div class="patient-emergency-contact--card">
+              <app-header-section
+                iconName="contact_emergency"
+                title="Contactos de emergencia"
+              ></app-header-section>
+              <div class="form-section">
+                <legend>Informacion de los contactos</legend>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label for="contactName">Nombre</label>
+                    <input type="text" name="contactName" />
+                  </div>
+                  <div class="form-input">
+                    <label for="contactType">Parentesco</label>
+                    <input type="text" name="contactType" />
+                  </div>
+                  <div class="form-input">
+                    <label for="contactPhone">Celular</label>
+                    <input type="text" name="contactPhone" />
+                  </div>
+                  <div class="form-input">
+                    <label for="contactEmail">Email</label>
+                    <input type="text" name="contactEmail" />
+                  </div>
+                </div>
+                <div class="form-container-fields">
+                  <div class="form-input">
+                    <label for="contactName">Nombre</label>
+                    <input type="text" name="contactName" />
+                  </div>
+                  <div class="form-input">
+                    <label for="contactType">Parentesco</label>
+                    <input type="text" name="contactType" />
+                  </div>
+                  <div class="form-input">
+                    <label for="contactPhone">Celular</label>
+                    <input type="text" name="contactPhone" />
+                  </div>
+                  <div class="form-input">
+                    <label for="contactEmail">Email</label>
+                    <input type="text" name="contactEmail" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+      </div>
+      <div class="patient-form--section-container patient-form--right-container">
+        <div class="patient-consultion-reason">
+          <app-card>
+            <div class="patient-consultion-reason--card">
+              <app-header-section
+                iconName="stethoscope"
+                title="Motivo de consulta"
+              ></app-header-section>
+              <div class="form-section">
+                <div class="form-input">
+                  <label for="consultationReason"></label>
+                  <select name="consultationReason" id="">
+                    <option value="">Consulta por primera vez</option>
+                    <option value="">Remision</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+
+        <div class="patient-documents-checklist">
+          <app-card>
+            <div class="patient-documents-checklist--card">
+              <app-header-section
+                title="Documentación "
+                iconName="library_books"
+              ></app-header-section>
+              <div class="form-section">
+                <div class="form-input-check-container">
+                  <input type="checkbox" name="isAggrementSigned" id="" />
+                  <label for="isAggrementSigned">
+                    <a>Consentimiento informado?</a>
+                  </label>
+                </div>
+                <div class="form-input-check-container">
+                  <input type="checkbox" name="isAggrementSigned" id="" />
+                  <label for="isAggrementSigned">
+                    <a>Habeas Data</a>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+
+        <div class="patient-habits-and-life-style">
+          <app-card>
+            <div class="patient-habits-and-life-style--card">
+              <app-header-section title="Estilo de vida" iconName="psychology"></app-header-section>
+              <div class="habit-questions">
+                <div class="form-section">
+                  <label>Consume Alcohol?</label>
+                  <div class="form-input-radio-container">
+                    <input type="radio" name="drinkAlcohol" id="alcohol-no" value="never" />
+                    <label for="alcohol-no">No consume alcohol</label>
+                  </div>
+                  <div class="form-input-radio-container">
+                    <input
+                      type="radio"
+                      name="drinkAlcohol"
+                      id="alcohol-somethimes"
+                      value="sometimes"
+                    />
+                    <label for="alcohol-somethimes">Consumo ocasional</label>
+                  </div>
+
+                  <div class="form-input-radio-container">
+                    <input type="radio" name="drinkAlcohol" id="alcohol-always" value="always" />
+                    <label for="alcohol-always">Consumo frecuente</label>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <label>Consume sustancias psicoactivas?</label>
+                  <div class="form-input-radio-container">
+                    <input type="radio" name="useDrugs" id="drugs-no" value="never" />
+                    <label for="drugs-no">No consume sutancias</label>
+                  </div>
+                  <div class="form-input-radio-container">
+                    <input type="radio" name="useDrugs" id="drugs-somethimes" value="sometimes" />
+                    <label for="drugs-somethimes">Consumo ocasional</label>
+                  </div>
+
+                  <div class="form-input-radio-container">
+                    <input type="radio" name="useDrugs" id="drugs-always" value="always" />
+                    <label for="drugs-always">Consumo frecuente</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="container-button-actions">
+      <button type="submit">Guardar</button>
     </div>
   </div>
-</div>
+</form>

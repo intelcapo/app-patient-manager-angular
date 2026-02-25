@@ -1,23 +1,134 @@
+@use '../../../../styles.scss' as globalStyles;
+
 .patient-form-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  max-width: 1200px;
   position: relative;
   left: 0;
+  padding: globalStyles.$padding-for-module-content;
 
   .patient-form-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    grid-template-areas:
-      'basic-information basic-information basic-information documents documents documents documents documents'
-      'basic-information basic-information basic-information documents documents documents documents documents'
-      'basic-information basic-information basic-information documents documents documents documents documents'
-      'basic-information basic-information basic-information documents documents documents documents documents';
+    grid-template-columns: 70% 30%;
+    column-gap: 40px;
+    row-gap: 40px;
+
+    .patient-form--section-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 24px;
+      column-gap: 24px;
+      padding: 0 24px;
+    }
 
     .patient-basic-information {
-      grid-area: 'basic-information';
+      .patient-basic-information--card {
+        display: flex;
+        flex-direction: column;
+        width: 96%;
+        margin-top: 24px;
+        padding: 24px;
+      }
+
+      .patient-basic-information--profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+
+      .form-section {
+        &.form-container-image {
+          display: flex;
+          justify-content: center;
+        }
+
+        .patient-form-basic-info {
+          display: grid;
+        }
+      }
     }
+
+    .patient-medical-information {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      .patient-medical-information--card {
+        margin-top: 24px;
+        .form-section {
+          margin-top: 28px;
+          .form-container-fields {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 24px;
+
+            .add-section {
+              .add-section-textbox-and-button {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                min-width: 300px;
+                max-width: 300px;
+              }
+            }
+
+            .add-section--list {
+              margin: 24px 0;
+            }
+
+            .form-input {
+              .yes-no-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 16px;
+                padding-top: 8px;
+
+                label {
+                  margin-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .patient-emergency-contact {
+      .patient-emergency-contact--card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+      }
+    }
+
+    .patient-habits-and-life-style {
+      .patient-habits-and-life-style--card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+
+        .habit-questions {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+      }
+    }
+
+    .patient-documents-checklist {
+    }
+
+    .patient-consultion-reason {
+    }
+  }
+
+  .container-button-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }

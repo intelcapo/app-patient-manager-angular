@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 $sidebar-bg: #f5f7f6;
+$section-background-color: #e3f2fd;
+$icon-text-color: #007bff;
+$title-text-color: #1a202c;
+$float-button-action-background: #1da1f2;
 $primary-color: #3c9197;
 $hover-bg: #e9efee;
 $text-color: #5c6b73;
@@ -11,6 +15,7 @@ $input-height-default: 36px;
 $input-border-radius: 8px;
 $input-padding: 8px;
 $button-hover-color: #1e4d4f;
+$padding-for-module-content: 40px 80px;
 
 body {
   margin: 0;
@@ -27,4 +32,131 @@ body {
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
+}
+
+.form-section {
+  margin-top: 16px;
+
+  legend {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .form-container-fields {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    column-gap: 16px;
+    row-gap: 24px;
+  }
+
+  .yes-no-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  color: $text-color;
+  padding: 4px 0;
+
+  label {
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='password'],
+  input[type='date'] {
+    width: 100%;
+    height: $input-height-default;
+    border-radius: $input-border-radius;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    color: $text-color;
+    padding-left: 8px;
+
+    &:focus {
+      outline: solid 1px $input-focus-color;
+      border: solid 1px $input-focus-color;
+
+      &::placeholder {
+        color: $input-focus-color;
+      }
+    }
+  }
+
+  input[type='radio'] {
+    width: 20px;
+    height: 20px;
+  }
+
+  select {
+    width: 100%;
+    height: $input-height-default;
+    border-radius: $input-border-radius;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    color: $text-color;
+    padding-left: 8px;
+
+    &:focus {
+      outline: solid 1px $input-focus-color;
+      border: solid 1px $input-focus-color;
+    }
+  }
+
+  .form-input-radio-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    label {
+      cursor: pointer;
+      margin-top: 4px;
+    }
+  }
+
+  .form-input-check-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    label {
+      cursor: pointer;
+      margin-top: 4px;
+    }
+  }
+
+  .form-label-option {
+    cursor: pointer;
+  }
+}
+
+button[type='submit'] {
+  background-color: $float-button-action-background;
+  color: white;
+  min-width: 150px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 12px 40px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1991db;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(29, 161, 242, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }

@@ -5,10 +5,12 @@ import { PatientsFilter } from './patients-filter/patients-filter';
 import { PatientFilterDTO } from './models/patient-filter.model';
 import { PatientsService } from './services/patients.service';
 import { Patient } from './models/patient.model';
+import { BtnRounded } from '../../shared/ui/components/btn-rounded/btn-rounded';
+import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 
 @Component({
   selector: 'app-patients',
-  imports: [PatientsListComponent, PatientsFilter],
+  imports: [PatientsListComponent, PatientsFilter, BtnRounded, DashboardRoutingModule],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.scss',
 })
@@ -50,7 +52,7 @@ export class PatientsComponent implements OnInit {
           patient.status == (data.status.label.toLowerCase() == 'activo' ? true : false);
 
         const matchLocation =
-          !data.city || patient.locationName.toLowerCase() == data.city.label.toLowerCase();
+          !data.city || patient.city?.toLowerCase() == data.city.label.toLowerCase();
 
         return matchData && matchStatus && matchLocation;
       });

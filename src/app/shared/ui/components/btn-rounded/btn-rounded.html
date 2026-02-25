@@ -1,0 +1,10 @@
+<button
+  type="button"
+  class="btn btn-rounded"
+  [class.small]="buttonSize == 'small'"
+  [class.medium]="buttonSize == 'medium'"
+  [class.big]="buttonSize == 'big'"
+  (click)="onClicked.emit()"
+>
+  {{ label }}
+</button>

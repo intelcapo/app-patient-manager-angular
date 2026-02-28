@@ -15,7 +15,8 @@
 
   .header {
     grid-area: header;
-    background: globalStyles.$primary-color;
+    //background: globalStyles.$primary-color;
+    background: #0ea5e9;
     position: relative;
     .notification-icon {
       position: absolute;
@@ -27,6 +28,6 @@
 
   .module-container {
     grid-area: content;
-    background-color: #eff6ff;
+    background-color: #f0f9ff;
   }
 }

@@ -6,11 +6,11 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home',
+    redirectTo: '/singUn',
   },
   {
-    path: 'home',
-    loadChildren: () => import('./features/auth/auth.module').then((m) => m.AuthModule),
+    path: 'singUp',
+    loadComponent: () => import('./features/auth/register/register').then((c) => c.Register),
   },
   {
     path: '',
@@ -30,6 +30,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/home',
+    redirectTo: '/singUp',
   },
 ];

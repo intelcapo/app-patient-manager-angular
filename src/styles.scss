@@ -24,6 +24,7 @@ body {
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
+  color: #334155;
 }
 
 .material-symbols-outlined {
@@ -139,7 +140,8 @@ body {
 }
 
 button[type='submit'] {
-  background-color: $float-button-action-background;
+  // background-color: $float-button-action-background;
+  background-color: #6366f1;
   color: white;
   min-width: 150px;
   box-sizing: border-box;

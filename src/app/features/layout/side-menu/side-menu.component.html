@@ -4,23 +4,33 @@
   </div>
 
   <nav class="sidebar__nav">
-    <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      class="nav-item"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <span class="material-symbols-outlined"> dashboard </span>
       <span>Dashboard</span>
     </a>
 
-    <a routerLink="/patients" routerLinkActive="active" class="nav-item">
+    <a
+      routerLink="/patients"
+      routerLinkActive="active"
+      class="nav-item"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <span class="material-symbols-outlined"> patient_list </span>
       <span>Pacientes</span>
     </a>
 
     <a routerLink="/payments" routerLinkActive="active" class="nav-item">
-      <span class="icon">💳</span>
+      <span class="material-symbols-outlined">credit_card</span>
       <span>Pagos</span>
     </a>
 
     <a routerLink="/settings" routerLinkActive="active" class="nav-item">
-      <span class="icon">⚙️</span>
+      <span class="material-symbols-outlined">settings</span>
       <span>Configuracion</span>
     </a>
   </nav>

@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-ODKRYVNZ.js";import{Ia as r,T as i,t}from"./chunk-JZVGHQQW.js";var m=class o{static \u0275fac=function(n){return new(n||o)};static \u0275mod=i({type:o});static \u0275inj=t({imports:[r,e]})};export{m as DashboardModule};

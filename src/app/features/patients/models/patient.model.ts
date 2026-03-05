@@ -2,6 +2,7 @@ import { LegalDocument } from '../../../core/Models/document.model';
 import { Contact, Person } from '../../../core/Models/person.model';
 
 export interface Patient extends Person {
+  profileImageURL?: string;
   genderIdentity?: string;
   currentAge?: number;
   maritalStatus?: string;

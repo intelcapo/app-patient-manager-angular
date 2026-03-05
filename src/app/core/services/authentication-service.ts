@@ -56,6 +56,15 @@ export class AuthenticationService {
     }
   }
 
+  async getUserId() {
+    const currentUser = this.auth.currentUser;
+    if (currentUser) {
+      const UID = currentUser.uid;
+      return UID;
+    }
+    return null;
+  }
+
   async logout() {
     await signOut(this.auth);
   }

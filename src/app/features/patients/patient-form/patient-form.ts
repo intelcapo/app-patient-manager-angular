@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { CardComponent } from '../../../shared/ui/components/card/card.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PatientsService } from '../services/patients.service';
 import { SharedModule } from '../../../shared/shared.module';
+import { Patient } from '../models/patient.model';
 
 @Component({
   selector: 'app-patient-form',
@@ -12,6 +13,10 @@ import { SharedModule } from '../../../shared/shared.module';
   styleUrl: './patient-form.scss',
 })
 export class PatientForm {
+  patientImage: File | null = null;
+
+  imagePreview = signal<string | ArrayBuffer | null>('/assets/images/userProfile.png');
+
   frmPatient = new FormGroup({
     documentType: new FormControl(''),
     documentNumber: new FormControl(''),
@@ -121,8 +126,35 @@ export class PatientForm {
 
   removeAllergy(allergyName: string | null) {}
 
-  createPatient(event: any) {
-    event.preventDefault();
-    console.log(this.frmPatient.value);
+  async createPatient(event: any) {
+    try {
+      event.preventDefault();
+      const patient: Patient = this.frmPatient.value as any;
+      const imgURL = await this.patientService.uploadPatientImage(this.patientImage);
+      patient.profileImageURL = imgURL || '';
+      console.log(patient);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async updateProfilePicture(event: any) {
+    try {
+      const patientImageFile: File | null = event.target.files[0];
+
+      if (patientImageFile) {
+        this.patientImage = patientImageFile;
+
+        const reader = new FileReader();
+
+        reader.onload = () => {
+          this.imagePreview.set(reader.result);
+        };
+
+        reader.readAsDataURL(patientImageFile);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

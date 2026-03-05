@@ -12,11 +12,23 @@
                 iconName="patient_list"
               ></app-header-section>
               <div class="form-section form-container-image">
-                <img
-                  src="assets/images/userProfile.png"
-                  alt="User profile"
-                  class="patient-basic-information--profile-pic"
-                />
+                <div>
+                  <input
+                    type="file"
+                    name="imgURL"
+                    id="imgURL"
+                    #fileInput
+                    style="display: none"
+                    (change)="updateProfilePicture($event)"
+                  />
+                  <div (click)="fileInput.click()">
+                    <img
+                      [src]="imagePreview()"
+                      alt="User profile"
+                      class="patient-basic-information--profile-pic"
+                    />
+                  </div>
+                </div>
               </div>
 
               <div>

@@ -1,12 +1,19 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { MOCK_PATIENTS } from '../mocks/patients.mock';
+import { HttpClient } from '@angular/common/http';
+import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
+import { AuthenticationService } from '../../../core/services/authentication-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PatientsService {
+  private http = inject(HttpClient);
+  private firebaseStorage = inject(Storage);
+  private auth = inject(AuthenticationService);
+
   constructor() {}
 
   getAllPatients(): Observable<Patient[]> {
@@ -40,5 +47,30 @@ export class PatientsService {
     }
 
     return currentAge;
+  }
+
+  async uploadPatientImage(selectedFile: File | null) {
+    try {
+      if (!selectedFile) return;
+
+      const currrentUserID = await this.auth.getUserId();
+      if (currrentUserID) {
+        const filePath = `patients/${currrentUserID}/${Date.now()}_${selectedFile.name}`;
+
+        const storageRef = ref(this.firebaseStorage, filePath);
+
+        await uploadBytes(storageRef, selectedFile);
+
+        const imgUrl = await getDownloadURL(storageRef);
+
+        console.log('¡Imagen subida! URL obtenida:', imgUrl);
+
+        return imgUrl;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    return null;
   }
 }

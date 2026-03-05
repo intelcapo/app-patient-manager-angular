@@ -106,6 +106,7 @@ body {
     box-sizing: border-box;
     color: $text-color;
     padding-left: 8px;
+    background-color: #fff;
 
     &:focus {
       outline: solid 1px $input-focus-color;

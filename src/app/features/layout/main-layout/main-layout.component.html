@@ -1,11 +1,15 @@
 <div class="layout">
   <div class="header">
-    <span class="material-symbols-outlined"> menu </span>
+    <span class="material-symbols-outlined" (click)="toggleSideMenu()"> menu </span>
     <h1>{{ title() }}</h1>
     <app-dropdown-session></app-dropdown-session>
   </div>
 
-  <app-side-menu class="side-menu"></app-side-menu>
+  <app-side-menu
+    class="side-menu"
+    (onCloseMenu)="toggleSideMenu()"
+    [class.open]="isMenuOpen()"
+  ></app-side-menu>
 
   <main class="content">
     <router-outlet></router-outlet>

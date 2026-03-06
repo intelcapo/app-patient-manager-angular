@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
@@ -8,4 +8,7 @@ import { RouterLink, RouterModule } from '@angular/router';
   styleUrl: './side-menu.component.scss',
   standalone: true,
 })
-export class SideMenuComponent {}
+export class SideMenuComponent {
+  @Output()
+  onCloseMenu: EventEmitter<any> = new EventEmitter<any>();
+}

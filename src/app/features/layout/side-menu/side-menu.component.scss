@@ -9,6 +9,11 @@
   flex-direction: column;
   box-sizing: border-box;
 
+  &__btn-close {
+    position: absolute;
+    right: 24px;
+  }
+
   &__logo {
     margin-bottom: 2.5rem;
 

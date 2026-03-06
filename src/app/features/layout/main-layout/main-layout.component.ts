@@ -18,6 +18,8 @@ export class MainLayoutComponent {
   private router = inject(Router);
   private layoutService = inject(LayoutService);
 
+  isMenuOpen = signal(false);
+
   constructor() {
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
@@ -25,5 +27,9 @@ export class MainLayoutComponent {
         const currentURL = event.url;
         this.title.set(this.layoutService.getCurrentTitle(currentURL));
       });
+  }
+
+  toggleSideMenu() {
+    this.isMenuOpen.set(!this.isMenuOpen());
   }
 }

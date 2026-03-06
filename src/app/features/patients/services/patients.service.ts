@@ -18,7 +18,16 @@ export class PatientsService {
   constructor() {}
 
   getAllPatients(): Observable<PaginationResponse<Patient>> {
-    return this.http.get<PaginationResponse<Patient>>('http://localhost:3000/patients?limit=30');
+    //return this.http.get<PaginationResponse<Patient>>('http://localhost:3000/patients?limit=30');
+    return of({
+      data: MOCK_PATIENTS,
+      meta: {
+        itemsPerPage: MOCK_PATIENTS.length,
+        currentPage: 1,
+        totalItems: MOCK_PATIENTS.length,
+        totalPages: 1,
+      },
+    } as PaginationResponse<Patient>);
   }
 
   getCurrentAge(birthDateString: string | null): number {

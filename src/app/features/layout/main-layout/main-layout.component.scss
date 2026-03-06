@@ -52,14 +52,23 @@ $sidebar-width: 250px;
 }
 
 .side-menu {
-  grid-area: sidebar;
   background-color: #f4f5f7;
   border-right: 1px solid #e0e0e0;
+  position: absolute;
+  z-index: 10;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.open {
+    transform: translateX(0);
+  }
   //we hide in mobile
-  display: none;
 
   @media (min-width: globalStyles.$breakpoint-table) {
-    display: block;
+    grid-area: sidebar;
+    transform: translateX(0); // Siempre visible en escritorio, sin importar si tiene la clase .open
+    transition: none;
   }
 }
 

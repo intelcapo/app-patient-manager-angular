@@ -1,7 +1,5 @@
 import { Component, inject, OnInit, Signal, signal } from '@angular/core';
 import { PatientsListComponent } from './patients-list/patients-list.component';
-import { PatientItemListComponent } from './patient-item-list/patient-item-list.component';
-import { PatientsFilter } from './patients-filter/patients-filter';
 import { PatientFilterDTO } from './models/patient-filter.model';
 import { PatientsService } from './services/patients.service';
 import { Patient } from './models/patient.model';
@@ -10,7 +8,7 @@ import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 
 @Component({
   selector: 'app-patients',
-  imports: [PatientsListComponent, PatientsFilter, BtnRounded, DashboardRoutingModule],
+  imports: [PatientsListComponent, BtnRounded, DashboardRoutingModule],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.scss',
 })

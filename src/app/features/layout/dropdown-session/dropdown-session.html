@@ -1,7 +1,10 @@
 <div class="dropdown-session-container" (click)="toggleDropdown()">
   <img [src]="userProfileURL()" alt="User profile pic" referrerpolicy="no-referrer" />
-  <span class="dropdown-session-user-data">Dr. {{ userName() }}</span>
-  <span class="material-symbols-outlined dropdown-session-icon"> arrow_drop_down </span>
+
+  <span class="dropdown-session-user-data container-data">Dr. {{ userName() }}</span>
+  <span class="material-symbols-outlined dropdown-session-icon container-data">
+    arrow_drop_down
+  </span>
 
   @if (isOpen) {
     <div class="dropdown-menu">

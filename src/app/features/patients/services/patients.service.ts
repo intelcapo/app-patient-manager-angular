@@ -5,6 +5,7 @@ import { MOCK_PATIENTS } from '../mocks/patients.mock';
 import { HttpClient } from '@angular/common/http';
 import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
 import { AuthenticationService } from '../../../core/services/authentication-service';
+import { PaginationResponse } from '../../../core/Models/pagination.response';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,8 @@ export class PatientsService {
 
   constructor() {}
 
-  getAllPatients(): Observable<Patient[]> {
-    return of(MOCK_PATIENTS);
+  getAllPatients(): Observable<PaginationResponse<Patient>> {
+    return this.http.get<PaginationResponse<Patient>>('http://localhost:3000/patients?limit=30');
   }
 
   getCurrentAge(birthDateString: string | null): number {

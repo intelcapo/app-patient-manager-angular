@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+$breakpoint-table: 768px;
 $sidebar-bg: #f5f7f6;
 $section-background-color: #e3f2fd;
 $icon-text-color: #007bff;
@@ -46,10 +47,14 @@ body {
 
   .form-container-fields {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     width: 100%;
     column-gap: 16px;
     row-gap: 24px;
+
+    @media (min-width: $breakpoint-table) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .yes-no-section {

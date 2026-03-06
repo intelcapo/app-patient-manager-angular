@@ -3,7 +3,7 @@
 .patient-item-list-container {
   cursor: pointer;
   display: grid;
-  grid-template-columns: 150px 400px 150px 300px;
+  grid-template-columns: 1fr;
   color: globalStyles.$text-color;
 
   .patient-item--image {
@@ -30,6 +30,7 @@
     .patient-item--name {
       font-size: 20px;
       font-weight: 400;
+      align-self: center;
     }
 
     .patient-item--status {
@@ -47,7 +48,7 @@
     .patient-item--info {
       display: flex;
       flex-direction: row;
-      justify-items: center;
+      justify-content: center;
       align-items: center;
       gap: 8px;
     }
@@ -63,6 +64,7 @@
     align-items: center;
     justify-items: center;
     align-self: center;
+    padding: 24px 0;
 
     .sessions--amount {
       font-size: 24px;

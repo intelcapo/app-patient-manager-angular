@@ -1,0 +1,52 @@
+<div class="register-page">
+  <div class="register-panel">
+    <div class="panel-header">
+      <h2>Crear una Cuenta</h2>
+      <p>Únete a nuestra plataforma psicológica</p>
+    </div>
+
+    <form (ngSubmit)="onRegister()">
+      <div class="input-group">
+        <label>Correo Electrónico:</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          placeholder="ejemplo@correo.com"
+        />
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña:</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="Mínimo 6 caracteres"
+        />
+      </div>
+
+      <button type="submit">Registrarme</button>
+
+      <div class="divider">
+        <span>O</span>
+      </div>
+
+      <div class="google-btn-container">
+        <p>O si lo prefieres registrarte con:</p>
+
+        <img src="assets/images/gmail.jpg" (click)="onGoogleLogin()" />
+      </div>
+    </form>
+
+    @if (errorMessage != '') {
+      <p style="color: red">{{ errorMessage }}</p>
+    }
+
+    @if (successMessage != '') {
+      <p style="color: green">{{ successMessage }}</p>
+    }
+  </div>
+</div>

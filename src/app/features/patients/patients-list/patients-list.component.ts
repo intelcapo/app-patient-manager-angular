@@ -1,6 +1,5 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { PatientItemListComponent } from '../patient-item-list/patient-item-list.component';
-import { PatientsService } from '../services/patients.service';
 import { Patient } from '../models/patient.model';
 
 @Component({

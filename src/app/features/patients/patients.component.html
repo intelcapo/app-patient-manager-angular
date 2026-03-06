@@ -1,20 +1,25 @@
 <div class="patient-module-container">
-  <h1>Mis pacientes</h1>
-  <div>
+  <!-- <div class="patient-header">
+    <h1>Mis pacientes</h1>
+  </div> -->
+  <!-- <div>
     <app-patients-filter (onFilter)="filterPatients($event)"></app-patients-filter>
   </div>
-  <div class="patient-general-information">
+ <div class="patient-general-information">
     <span>
-      Total pacientes: <b> {{ originalPatients.length }} </b></span
+      Total pacientes: <b> {{ totalPatients() }} </b></span
     >
     <span>
-      Pacientes filtrados: <b> {{ patientList.length }} </b>
+      Pacientes filtrados: <b> {{ patientList().length }} </b>
     </span>
     <span>
       Consultas ejecutadas: <b>{{ executedSessions }} </b>
     </span>
-  </div>
+  </div>-->
   <div>
-    <app-patients-list [patientList]="patientList"> </app-patients-list>
+    <app-patients-list [patientList]="patientList()"> </app-patients-list>
   </div>
+  <a routerLink="/patients/new">
+    <app-btn-rounded label="+"></app-btn-rounded>
+  </a>
 </div>

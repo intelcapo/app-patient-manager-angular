@@ -1,18 +1,24 @@
 @use '../../../styles.scss' as globalStyles;
 
-.patient-module-container {
-  position: absolute;
-  padding: 40px 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 100%;
-  height: 100%;
-  max-width: 1024px;
+// .patient-module-container {
+//   position: absolute;
+//   padding: globalStyles.$padding-for-module-content;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 24px;
+//   width: 100%;
+//   height: 100%;
+//   max-width: 1024px;
 
-  .patient-general-information {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    color: globalStyles.$text-color;
-  }
-}
+//   .patient-header {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//   }
+
+//   .patient-general-information {
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     color: globalStyles.$text-color;
+//   }
+// }

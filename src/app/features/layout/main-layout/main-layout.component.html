@@ -1,10 +1,21 @@
 <div class="layout">
-  <app-side-menu class="menu-container"></app-side-menu>
   <div class="header">
-    <span class="material-symbols-outlined notification-icon"> notifications_unread </span>
+    <span class="material-symbols-outlined"> menu </span>
+    <h1>{{ title() }}</h1>
     <app-dropdown-session></app-dropdown-session>
   </div>
-  <main class="module-container">
+
+  <app-side-menu class="side-menu"></app-side-menu>
+
+  <main class="content">
     <router-outlet></router-outlet>
   </main>
+
+  <footer>
+    <div class="footer-mobile">
+      <span class="material-symbols-outlined"> home </span>
+      <span class="material-symbols-outlined"> search </span>
+      <span class="material-symbols-outlined"> add </span>
+    </div>
+  </footer>
 </div>

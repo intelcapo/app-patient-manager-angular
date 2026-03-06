@@ -1,0 +1,164 @@
+/* 1. Fondo que ocupa toda la pantalla */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-end; /* Empuja el panel a la derecha */
+  align-items: center; /* Centra el panel verticalmente */
+
+  /* Aquí cargas tu imagen de fondo */
+  background-image: url('/assets/images/background-image-register-page.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 2. Panel blanco flotante e impactante */
+.register-panel {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  margin-right: 8%; /* Lo separa un poco del borde derecho de la pantalla */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); /* Sombra oscura para dar profundidad */
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 28px;
+}
+
+.panel-header p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* 3. Estilos de los inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #4caf50; /* Color principal de tu app (ej. verde) */
+}
+
+/* 4. Botones */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+}
+
+/* Divisor "O" */
+.divider {
+  text-align: center;
+  margin: 25px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #ddd;
+  z-index: 1;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 15px;
+  color: #888;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+}
+
+/* Botón de Google */
+.btn-google {
+  width: 100%;
+  padding: 14px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn-google:hover {
+  background-color: #f9f9f9;
+}
+
+.google-icon {
+  font-weight: bold;
+  color: #db4437; /* Rojo de Google */
+}
+
+/* Alertas */
+.alert {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.alert.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.alert.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.google-btn-container {
+  img {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    cursor: pointer;
+  }
+}

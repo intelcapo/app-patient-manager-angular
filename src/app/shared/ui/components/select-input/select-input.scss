@@ -4,6 +4,7 @@
   width: 100%;
   border-radius: globalStyles.$input-border-radius;
   color: globalStyles.$text-color;
+
   cursor: pointer;
 
   label {
@@ -18,6 +19,7 @@
     border: solid 1px #ccc;
     display: grid;
     grid-template-columns: 85% 15%;
+    background-color: #fff;
 
     &.active {
       border: solid 2px globalStyles.$input-focus-color;

@@ -1,7 +1,5 @@
 <form [formGroup]="frmPatient" (ngSubmit)="createPatient($event)">
   <div class="patient-form-container">
-    <h1>Paciente nuevo</h1>
-
     <div class="patient-form-grid">
       <div class="patient-form--section-container patien-form--left-container">
         <div class="patient-basic-information">
@@ -12,11 +10,23 @@
                 iconName="patient_list"
               ></app-header-section>
               <div class="form-section form-container-image">
-                <img
-                  src="/assets/userProfile.png"
-                  alt="User profile"
-                  class="patient-basic-information--profile-pic"
-                />
+                <div>
+                  <input
+                    type="file"
+                    name="imgURL"
+                    id="imgURL"
+                    #fileInput
+                    style="display: none"
+                    (change)="updateProfilePicture($event)"
+                  />
+                  <div (click)="fileInput.click()">
+                    <img
+                      [src]="imagePreview()"
+                      alt="User profile"
+                      class="patient-basic-information--profile-pic"
+                    />
+                  </div>
+                </div>
               </div>
 
               <div>

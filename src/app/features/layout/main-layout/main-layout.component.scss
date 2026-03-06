@@ -1,32 +1,84 @@
 @use '../../../../styles.scss' as globalStyles;
+$header-height: 64px;
+$footer-height: 64px;
+$sidebar-width: 250px;
+
 .layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 70px 1fr;
-  grid-template-areas:
-    'sidebar header'
-    'sidebar content';
-
   height: 100vh;
+  //design for mobile first
 
-  .menu-container {
-    grid-area: sidebar;
+  grid-template-rows: $header-height 1fr $footer-height;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'content'
+    'mobile-footer';
+
+  @media (min-width: globalStyles.$breakpoint-table) {
+    grid-template-columns: $sidebar-width 1fr;
+    grid-template-areas:
+      'sidebar header'
+      'sidebar content'
+      'sidebar content';
   }
+}
 
-  .header {
-    grid-area: header;
-    background: globalStyles.$primary-color;
-    position: relative;
-    .notification-icon {
-      position: absolute;
-      right: 320px;
-      top: 24px;
-      color: white;
+.header {
+  grid-area: header;
+  background-color: #1976d2;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  z-index: 10;
+
+  span {
+    margin-right: 16px;
+    cursor: pointer;
+
+    @media (min-width: globalStyles.$breakpoint-table) {
+      display: none;
     }
   }
 
-  .module-container {
-    grid-area: content;
-    background-color: #eff6ff;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+}
+
+.side-menu {
+  grid-area: sidebar;
+  background-color: #f4f5f7;
+  border-right: 1px solid #e0e0e0;
+  //we hide in mobile
+  display: none;
+
+  @media (min-width: globalStyles.$breakpoint-table) {
+    display: block;
+  }
+}
+
+.content {
+  grid-area: content;
+  background-color: #fafafa;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.footer-mobile {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: $footer-height;
+  justify-items: center;
+  align-items: center;
+
+  @media (min-width: globalStyles.$breakpoint-table) {
+    display: none;
   }
 }
